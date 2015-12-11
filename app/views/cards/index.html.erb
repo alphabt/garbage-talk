@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Cards</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Content</th>
@@ -16,9 +14,9 @@
       <tr>
         <td><%= card.content %></td>
         <td><%= card.num_answer %></td>
-        <td><%= link_to 'Show', card %></td>
-        <td><%= link_to 'Edit', edit_card_path(card) %></td>
-        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', card, :class => "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_card_path(card), :class => "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,5 +24,5 @@
 
 <br>
 
-<%= link_to 'New Card', new_card_path %>
+<%= link_to 'New Card', new_card_path, :class => "btn btn-primary" %>
 <%= paginate @cards %>

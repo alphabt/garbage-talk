@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    <%= f.text_field :content, :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :num_answer %><br>
-    <%= f.number_field :num_answer %>
+    <%= f.number_field :num_answer, :class => "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary"%>
   </div>
 <% end %>
