@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
+gem 'heroku_secrets', github: 'iczman/garbage-talk'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
