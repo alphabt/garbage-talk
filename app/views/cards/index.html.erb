@@ -1,5 +1,10 @@
 <h1>Listing Cards</h1>
 
+<br>
+<%= link_to 'New Card', new_card_path, :class => "btn btn-primary" %>
+<br>
+<br>
+
 <table class="table">
   <thead>
     <tr>
@@ -24,5 +29,4 @@
 
 <br>
 
-<%= link_to 'New Card', new_card_path, :class => "btn btn-primary" %>
-<%= paginate @cards %>
+<%= paginate @cards, :theme => 'twitter-bootstrap-3' %>
