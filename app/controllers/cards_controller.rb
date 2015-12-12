@@ -4,6 +4,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
+    @card = Card.new
     @cards = Card.page(params[:page]).per(20)
   end
 
@@ -28,10 +29,10 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
+        format.html { redirect_to cards_url, notice: 'Card was successfully created.' }
         format.json { render :show, status: :created, location: @card }
       else
-        format.html { render :new }
+        format.html { redirect_to cards_url, alert: @card.errors.full_messages.first }
         format.json { render json: @card.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +43,10 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
+        format.html { redirect_to cards_url, notice: 'Card was successfully updated.' }
         format.json { render :show, status: :ok, location: @card }
       else
-        format.html { render :edit }
+        format.html { flash[:alert] = @card.errors.full_messages.first; render :edit }
         format.json { render json: @card.errors, status: :unprocessable_entity }
       end
     end
